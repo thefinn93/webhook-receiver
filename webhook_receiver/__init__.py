@@ -3,9 +3,9 @@ import subprocess
 
 
 app = Flask(__name__)
-app.config.from_envvar("WEBHOOK_RECEIVER_SETTINGS", silent=True)
 app.config.from_pyfile("/etc/webhook-receiver.settings.py", silent=True)
 app.config.from_pyfile("webhook-receiver.settings.py", silent=True)
+app.config.from_envvar("WEBHOOK_RECEIVER_SETTINGS", silent=True)
 
 
 @app.route("/hook/<project>", methods=["POST"])
