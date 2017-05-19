@@ -13,4 +13,4 @@ def hook(project):
     if project not in app.config['COMMANDS']:
         return abort(404)
     rc = subprocess.wait(app.config['COMMANDS'][project])
-    return Response.ok() if rc == 0 else abort(500)
+    return Response() if rc == 0 else abort(500)
