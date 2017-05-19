@@ -8,4 +8,4 @@ setup(name='webhook-receiver',
       author_email='finn@finn.io',
       url='https://github.com/thefinn93/webhook-receiver',
       packages=['webhook_receiver'],
-      install_requires=["flask>=0.12.2"])
+      install_requires=["flask"])
