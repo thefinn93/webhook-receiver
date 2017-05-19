@@ -1,4 +1,4 @@
-from flask import Flask, abort, response
+from flask import Flask, abort, Response
 import subprocess
 
 
@@ -13,4 +13,4 @@ def hook(project):
     if project not in app.config['COMMANDS']:
         return abort(404)
     rc = subprocess.wait(app.config['COMMANDS'][project])
-    return response.ok() if rc == 0 else abort(500)
+    return Response.ok() if rc == 0 else abort(500)
