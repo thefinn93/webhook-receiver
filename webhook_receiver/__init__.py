@@ -12,5 +12,5 @@ app.config.from_envvar("WEBHOOK_RECEIVER_SETTINGS", silent=True)
 def hook(project):
     if project not in app.config['COMMANDS']:
         return abort(404)
-    rc = subprocess.wait(app.config['COMMANDS'][project])
+    rc = subprocess.call(app.config['COMMANDS'][project])
     return Response() if rc == 0 else abort(500)
