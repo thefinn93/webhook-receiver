@@ -1,0 +1,14 @@
+[Unit]
+Description=Webhook Receiver
+Wants=network.target
+After=network.target
+
+[Service]
+SyslogIdentifier=webhook-receiver
+User=nobody
+Group=nogroup
+ExecStart=/usr/local/bin/gunicorn -b 0.0.0.0 webhook_receiver:app
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
